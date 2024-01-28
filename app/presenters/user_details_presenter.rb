@@ -18,8 +18,6 @@ class UserDetailsPresenter
 	private
 
 	def raw_data
-		@user_details["data"]["attributes"]
-	rescue
-		{}
+		@user_details.try(:[], "data").try(:[], "attributes") || {}
 	end
 end
