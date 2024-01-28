@@ -30,13 +30,10 @@ RSpec.describe 'Users', type: :request do
 
     context 'but if no user is present', vcr: 'requests/get_user/not_found' do
       let(:id) { 1000 }
-      
-      it 'returns no user' do
-        expect(json.size).to eq(0)
-      end
 
-      it 'returns status code 404' do
-        expect(response).to have_http_status(:not_found)
+      it 'returns 404 and no user' do
+        expect(json['status']).to eql(404)
+        expect(json['id']).to be_nil
       end
     end
   end

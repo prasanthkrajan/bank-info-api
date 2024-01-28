@@ -5,12 +5,14 @@ class UsersFacade
 
 	def user_details
 		@user_details ||= ApiDataRetriever.call(path: "/users/#{@user_id}")
-		raise StandardError.new(@user_details["error"]) if @user_details["error"]
+		raise Exceptions::UserNotFoundError if @user_details["error"]
+		@user_details
 	end
 
 	def user_account_details
 		@user_account_details ||= ApiDataRetriever.call(path: "/users/#{@user_id}/accounts")
-		raise StandardError.new(@user_account_details["error"]) if @user_account_details["error"]
+		raise Exceptions::UserNotFoundError if @user_account_details["error"]
+		@user_account_details
 	end
 
 	def user_and_account_details
