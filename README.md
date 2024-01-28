@@ -1,24 +1,25 @@
-# README
+# Bank Info API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Development Setup
 
-Things you may want to cover:
+1. Ensure you run `bundle install`, and `rake db:setup`, prior to `rails s`
 
-* Ruby version
 
-* System dependencies
+### API Endpoints
 
-* Configuration
+#### GET /api/v1/users/:id
 
-* Database creation
+* retrieves a specific user and related bank details
+* e.g: `GET http://localhost:3000/api/v1/users/1`
 
-* Database initialization
 
-* How to run the test suite
+### API Design Considerations
 
-* Services (job queues, cache servers, search engines, etc.)
+* made simple with only one endpoint to input a user ID and retrieve bank info of the user
+* external API call logic is encapsulated in the `ApiDataRetriever`
+* `UserFacade` serves as a front, and handles delegation of data retrieval by passing the right path to the `ApiDataRetriever`
+* `UserDetailsPresenter` and `UserAccountDetailsPresenter` handle formatting and retrieval of data, without being coupled and intertwined in the facade, allowing maintainability
 
-* Deployment instructions
 
-* ...
+
+
