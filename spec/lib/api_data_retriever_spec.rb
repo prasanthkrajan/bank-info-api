@@ -3,15 +3,15 @@ require "rails_helper"
 
 RSpec.describe ApiDataRetriever do
   describe '.call' do
-    subject { described_class.call(api_endpoint) }
+    subject { described_class.call(path: path) }
 
     context 'when testing users endpoint' do
       context 'and endpoint is valid and up and running', vcr: 'lib/api_data_retriever/users/ok' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/users/1' }
+        let(:path) { '/users/1' }
 
         it 'returns raw data successfully' do
           expect(subject).to eql({
-            data: {
+            "data" => {
               "attributes" => {
                 "account_ids" => [1, 3, 5], 
                 "id" => 1, 
@@ -23,18 +23,18 @@ RSpec.describe ApiDataRetriever do
       end
 
       context 'but user is not found', vcr: 'lib/api_data_retriever/users/not_found' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/users/1000' }
+        let(:path) { '/users/1000' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
 
       context 'but endpoint is malformed', vcr: 'lib/api_data_retriever/users/malformed' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/userss/1' }
+        let(:path) { '/userss/1' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
     end
@@ -43,11 +43,11 @@ RSpec.describe ApiDataRetriever do
 
     context 'when testing accounts endpoint' do
       context 'and endpoint is valid and up and running', vcr: 'lib/api_data_retriever/accounts/ok' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/users/1/accounts' }
+        let(:path) { '/users/1/accounts' }
 
         it 'returns raw data successfully' do
           expect(subject).to eql({
-            data: [
+            "data" => [
               { 
                 "attributes" => {
                   "balance" => 20000, 
@@ -77,29 +77,29 @@ RSpec.describe ApiDataRetriever do
       end
 
       context 'but account is not found', vcr: 'lib/api_data_retriever/accounts/not_found' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/users/1000/accounts' }
+        let(:path) { '/users/1000/accounts' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
 
       context 'but endpoint is malformed', vcr: 'lib/api_data_retriever/accounts/malformed' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/userss/1/accounts' }
+        let(:path) { '/userss/1/accounts' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
     end
 
     context 'when testing specific account endpoint' do
       context 'and endpoint is valid and up and running', vcr: 'lib/api_data_retriever/specific_account/ok' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/accounts/2' }
+        let(:path) { '/accounts/2' }
 
         it 'returns raw data successfully' do
           expect(subject).to eql({
-            data: {
+            "data" => {
               "attributes" => {
                 "balance" => 200, 
                 "id" => 2, 
@@ -112,18 +112,18 @@ RSpec.describe ApiDataRetriever do
       end
 
       context 'but account is not found', vcr: 'lib/api_data_retriever/specific_account/not_found' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/accounts/2000' }
+        let(:path) { '/accounts/2000' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
 
       context 'but endpoint is malformed', vcr: 'lib/api_data_retriever/specific_account/malformed' do
-        let(:api_endpoint) { 'https://sample-accounts-api.herokuapp.com/accountss/2' }
+        let(:path) { '/accountss/2' }
         
         it 'returns error' do
-          expect(subject).to eql({ error: 'Unable to fetch data due to error 404' })
+          expect(subject).to eql({ "error" => 'Unable to fetch data due to error 404' })
         end
       end
     end

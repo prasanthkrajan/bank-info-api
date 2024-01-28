@@ -23,11 +23,11 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 28 Jan 2024 09:45:34 GMT
+      - Sun, 28 Jan 2024 17:43:25 GMT
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1706435135&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=0S%2BK%2FL1Ufb%2FL5CCZ%2BOveJ4qQglKr9c3GpcKsmMUGTBM%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1706463806&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=ihXh7HZb24tWkAw%2BgUmHtPF7xh2Yc7hqxhdhqJBr2aI%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1706435135&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=0S%2BK%2FL1Ufb%2FL5CCZ%2BOveJ4qQglKr9c3GpcKsmMUGTBM%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1706463806&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=ihXh7HZb24tWkAw%2BgUmHtPF7xh2Yc7hqxhdhqJBr2aI%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -53,9 +53,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 0d74219d-d16a-4fa6-a7b3-224ea6d77ea9
+      - bc6dbf5a-d11b-4747-8269-50bbd823cee5
       X-Runtime:
-      - '0.001662'
+      - '0.001369'
       Transfer-Encoding:
       - chunked
       Via:
@@ -63,7 +63,7 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"attributes":{"id":1,"name":"Alice","account_ids":[1,3,5]}}'
-  recorded_at: Sun, 28 Jan 2024 09:45:36 GMT
+  recorded_at: Sun, 28 Jan 2024 17:43:26 GMT
 - request:
     method: get
     uri: https://sample-accounts-api.herokuapp.com/users/1/accounts
@@ -87,11 +87,11 @@ http_interactions:
       Server:
       - Cowboy
       Date:
-      - Sun, 28 Jan 2024 09:45:37 GMT
+      - Sun, 28 Jan 2024 17:43:26 GMT
       Report-To:
-      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1706435138&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=YixkFhkqhz1pDBtXeviU5tJfWYR%2Bd1uYhAC62UKYN14%3D"}]}'
+      - '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1706463807&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=gvc80xDHGXDefQgwAw9Cum9Ih44CSZlcVxUOweGeyr8%3D"}]}'
       Reporting-Endpoints:
-      - heroku-nel=https://nel.heroku.com/reports?ts=1706435138&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=YixkFhkqhz1pDBtXeviU5tJfWYR%2Bd1uYhAC62UKYN14%3D
+      - heroku-nel=https://nel.heroku.com/reports?ts=1706463807&sid=67ff5de4-ad2b-4112-9289-cf96be89efed&s=gvc80xDHGXDefQgwAw9Cum9Ih44CSZlcVxUOweGeyr8%3D
       Nel:
       - '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}'
       Connection:
@@ -117,9 +117,9 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 63263664-3255-438f-b972-26c2d2192296
+      - 973fdc71-215e-4ebf-94ec-47981d137f82
       X-Runtime:
-      - '0.001717'
+      - '0.001434'
       Transfer-Encoding:
       - chunked
       Via:
@@ -128,5 +128,5 @@ http_interactions:
       encoding: ASCII-8BIT
       string: !binary |-
         W3siYXR0cmlidXRlcyI6eyJpZCI6MSwidXNlcl9pZCI6MSwibmFtZSI6IkHpioDooYwiLCJiYWxhbmNlIjoyMDAwMH19LHsiYXR0cmlidXRlcyI6eyJpZCI6MywidXNlcl9pZCI6MSwibmFtZSI6IkPkv6HnlKjph5HluqsiLCJiYWxhbmNlIjoxMjAwMDB9fSx7ImF0dHJpYnV0ZXMiOnsiaWQiOjUsInVzZXJfaWQiOjEsIm5hbWUiOiJF6YqA6KGMIiwiYmFsYW5jZSI6NTAwMH19XQ==
-  recorded_at: Sun, 28 Jan 2024 09:45:38 GMT
+  recorded_at: Sun, 28 Jan 2024 17:43:27 GMT
 recorded_with: VCR 6.1.0
