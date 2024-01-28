@@ -4,14 +4,12 @@ class UserAccountDetailsPresenter
 	end
 
 	def account_name_and_balance
-		raw_data.map { |s| { name: s["attributes"]["name"], balance: s["attributes"]["balance"] } }
+		raw_data.map { |s| { name: s.try(:[], "attributes").try(:[], "name"), balance: s.try(:[], "attributes").try(:[], "balance") } }
 	end
 
 	private
 
 	def raw_data
-		@user_account_details["data"]
-	rescue
-		{}
+		@user_account_details.try(:[], "data") || {}
 	end
 end
