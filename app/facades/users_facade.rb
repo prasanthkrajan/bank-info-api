@@ -18,8 +18,8 @@ class UsersFacade
 	def user_and_account_details
 		{
 			id: @user_id,
-			name: user_details["data"]["attributes"]["name"],
-			accounts: user_account_details["data"].map { |s| { name: s["attributes"]["name"], balance: s["attributes"]["balance"] } }
+			name: UserDetailsPresenter.new(user_details).name,
+			accounts: UserAccountDetailsPresenter.new(user_account_details).account_name_and_balance
 		}
 	end
 end
